@@ -1,0 +1,22 @@
+{
+  "name": "couchdb-creator",
+  "version": "1.0.0",
+  "description": "Check for and create dbs on startup",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UnicodingUnicorn/couchdb-creator.git"
+  },
+  "keywords": [
+    "couchdb"
+  ],
+  "author": "unicodingunicorn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UnicodingUnicorn/couchdb-creator/issues"
+  },
+  "homepage": "https://github.com/UnicodingUnicorn/couchdb-creator#readme"
+}
