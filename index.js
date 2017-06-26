@@ -10,7 +10,7 @@ module.exports = function(nano, name, design_doc){
           console.log(name + " created successfully!");
           if(design_doc){
             var db = nano.db.use(name);
-            db.insert(design_doc.doc, '_design/' + design_doc.name, function(err, res){
+            db.insert(design_doc.doc, '_design/' + design_doc.name, function(d_err, d_body){
               if(d_err){
                 console.log(d_err);
                 process.exit(1);
