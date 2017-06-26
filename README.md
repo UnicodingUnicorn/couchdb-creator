@@ -6,7 +6,10 @@ Utility for dynamically check for, and creating if their existence is doubtful, 
   var nano = require("nano")("http://couchdb:5984");
   var creator = require("couchdb-creator");
 
-  var foo = creator(nano, 'foo');
+  var foo;
+  creator(nano, 'foo', function(db){
+    foo = db;
+  });
 ```
 
 With design_doc:
@@ -19,5 +22,8 @@ With design_doc:
         { "map": function(doc) { emit([doc.name, doc.city], doc._id); } }
       }
     };
-  var foo = creator(nano, 'foo', {name : 'by_name_and_city', doc : doc});
+  var foo;
+  creator(nano, 'foo', {name : 'by_name_and_city', doc : doc}, function(db){
+    foo = db;
+  });
 ```

@@ -1,4 +1,13 @@
-module.exports = function(nano, name, design_doc){
+module.exports = function(nano, name, design_doc, cb){
+  var args = [];
+  for(var i = 0; i < arguments.length; i++){
+    args.push(arguments[i]);
+  }
+  nano = args.shift();
+  name = args.shift();
+  cb = args.pop();
+  design_doc = args.length > 0 ? args.shift() : null;
+
   nano.db.get(name, function(err, body){
     if(err && err.statusCode == 404){
       console.log(name + " does not exist, creating...");
@@ -15,18 +24,18 @@ module.exports = function(nano, name, design_doc){
                 console.log(d_err);
                 process.exit(1);
               }else{
-                return db;
+                cb(db);
               }
             });
           }else{
-            return nano.db.use(name);
+            cb(nano.db.use(name));
           }
-          return nano.db.use(name);
+          cb(nano.db.use(name));
         }
       });
     }else{
       console.log(name + " already exists...Using that...");
-      return nano.db.use(name);
+      cb(nano.db.use(name));
     }
   });
 }
