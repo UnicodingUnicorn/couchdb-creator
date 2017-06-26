@@ -1,6 +1,6 @@
 {
   "name": "couchdb-creator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Check for and create dbs on startup",
   "main": "index.js",
   "scripts": {
